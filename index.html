@@ -1,0 +1,44 @@
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Generator listy zakupów</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <img class="header__img" src="logo.png" alt="" />
+            <h1 class="header__h1">Generator listy zakupów</h1>
+        </div>
+        <div class="container container--small">
+            <h3 class="container__h3 container__h3--cart">Koszyk</h1>
+            <p class="js-cart-info"></p>
+            <button type="button" class="js-cart-button js-modal-open">+</button>
+        </div>
+       <div class="container">
+            <div class="items js-items"></div>
+       </div>
+    </div>
+
+    <div class="modal js-modal">
+        <div class="modal__div">
+            <div class="modal__header">
+                <h3 class="modal__h3">Zawartość koszyka</h3>
+                <button type="button" class="js-modal-close js-cart-button">&times;</button>
+            </div>
+            <div class="modal__content js-cart"></div>
+            <div class="modal__footer">
+                <span class="modal__span">
+                    <label class="modal__label" for ="link">Link do koszyka</label>
+                    <input class="modal__input js-modal-input" type="url" id="link" readonly>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
