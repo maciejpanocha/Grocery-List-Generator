@@ -59,9 +59,9 @@
     const updateHash = () => {window.location.hash = getCustomHash()};
 
     const updateData = () => {
-        var currentHash = window.location.hash.substr(1)
-        var objectsHash = currentHash.split('&').reduce(function (res, item) {
-            var parts = item.split('=')
+        let currentHash = window.location.hash.substr(1)
+        let objectsHash = currentHash.split('&').reduce(function (res, item) {
+            let parts = item.split('=')
             res[parts[0]] = parts[1]
             return res
         }, {})
