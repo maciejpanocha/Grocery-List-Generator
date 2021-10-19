@@ -7,8 +7,9 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 ## Upcoming features
 - ~~Cleaning JS code.~~
 - ~~Proper and clearner JS code.~~
+- ~~Better working hash.~~
 - Mobile-ready.
-- Local storage features and adjusting hash purposes.
+- Local storage features.
 - Copy link to the clipboard with one click.
 - Link or hash shortcut system.
 - Next level JS code?
