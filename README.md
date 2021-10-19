@@ -8,6 +8,7 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 - ~~Cleaning JS code.~~
 - ~~Proper and clearner JS code.~~
 - ~~Better working hash.~~
+- Clearner CSS and HTML?
 - Mobile-ready.
 - Local storage features.
 - Copy link to the clipboard with one click.
