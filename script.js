@@ -30,6 +30,8 @@
         }
     ]
 
+    const htmlItemAmount = (amount) => {return `Ilość: <span class="items__p items__p--bigger">${amount}x</span>`}
+    
     const appendNode = (parent, element) => {parent.appendChild(element)};
 
     const createNode = (node) => {return document.createElement(node)};
@@ -99,7 +101,7 @@
 
     const renderAmount = ({id, amount}) => {
         let currentAmount = document.getElementById(`amountOf${id}`)
-        currentAmount.innerHTML = `Ilość: <span class="items__p items__p--bigger">${amount}x</span>`
+        currentAmount.innerHTML = htmlItemAmount(amount)
     };
 
     const renderItem = (item) => {
@@ -155,7 +157,7 @@
             const item_amount = createNode("p")
             item_amount.setAttribute("class", "items__p items__p--amount")
             item_amount.setAttribute("id", `amountOf${item.id}`)
-            item_amount.innerHTML = `Ilość: <span class="items__p items__p--bigger">${item.amount}x</span>`
+            item_amount.innerHTML = htmlItemAmount(item.amount)
 
             const item_button_frame = createNode("span")
             item_button_frame.setAttribute("class", "items__span")
@@ -229,13 +231,10 @@
         let addButton = document.querySelectorAll(".js-cart-button--add")
         let removeButton = document.querySelectorAll(".js-cart-button--remove")
         
-        for (let i = 0; i < addButton.length; i++) {
+        for (let i = 0; i < items.length; i++) {
             addButton[i].addEventListener("click", () => {
                 addToCartEvent(items[i])
             })
-        }
-
-        for (let i = 0; i < removeButton.length; i++) {
             removeButton[i].addEventListener("click", () => {
                 removeFromCartEvent(items[i])
             })
