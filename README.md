@@ -6,9 +6,9 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 
 ## Upcoming features
 - ~~Cleaner JS code.~~
-- Simpler JS code.
+- Cleanest and proper JS code.
 - Mobile-ready.
 - Local storage features and adjusting hash purposes.
 - Copy link to the clipboard with one click.
 - Link or hash shortcut system.
-
+- Even simpler JS code?
