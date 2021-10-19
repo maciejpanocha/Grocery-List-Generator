@@ -48,32 +48,6 @@
         return dataHash
     };
 
-    const addToCartEvent = (item) => {
-        const index = items.indexOf(item)
-        
-        items = [
-            ...items.slice(0, index),
-            {...items[index], amount: items[index].amount + 1},
-            ...items.slice(index + 1)
-        ]
-
-        partialRender(item)
-    };
-
-    const removeFromCartEvent = (item) => {
-        const index = items.indexOf(item)
-        
-        if (item.amount > 0) {
-            items = [
-                ...items.slice(0, index),
-                {...items[index], amount: items[index].amount - 1},
-                ...items.slice(index + 1)
-            ]
-        }
-        
-        partialRender(item)
-    };
-
     const updateHash = () => {window.location.hash = getCustomHash()};
 
     const tryUpdateItemsData = () => {
@@ -96,6 +70,46 @@
         }
     };
 
+    const addToCartEvent = (item) => {
+        const index = items.indexOf(item)
+        
+        items = [
+            ...items.slice(0, index),
+            {...items[index], amount: items[index].amount + 1},
+            ...items.slice(index + 1)
+        ]
+        item.amount = items[index].amount
+
+        renderItem(item)
+    };
+
+    const removeFromCartEvent = (item) => {
+        const index = items.indexOf(item)
+        
+        if (item.amount > 0) {
+            items = [
+                ...items.slice(0, index),
+                {...items[index], amount: items[index].amount - 1},
+                ...items.slice(index + 1)
+            ]
+        }
+        item.amount = items[index].amount
+        
+        renderItem(item)
+    };
+
+    const renderAmount = ({id, amount}) => {
+        let currentAmount = document.getElementById(`amountOf${id}`)
+        currentAmount.innerHTML = `Ilość: <span class="items__p items__p--bigger">${amount}x</span>`
+    };
+
+    const renderItem = (item) => {
+        renderAmount(item)
+        renderPreview()
+
+        updateHash()
+    };
+
     const renderPreview = () => {
         let previewBar = document.querySelector(".js-cart-info")
         let itemsNumber = 0
@@ -115,11 +129,6 @@
             Sztuk razem: ${itemsPieces},
             Waga razem: ${getKilograms(itemsTotalWeight)}kg
         `
-    };
-
-    const renderAmount = ({id, amount}) => {
-        let currentAmount = document.getElementById(`amountOf${id}`)
-        currentAmount.innerHTML = `Ilość: <span class="items__p items__p--bigger">${amount}x</span>`
     };
 
     const renderItems = () => {
@@ -232,13 +241,6 @@
                 removeFromCartEvent(items[i])
             })
         }
-    };
-
-    const partialRender = (item) => {
-        renderAmount(item)
-        renderPreview()
-
-        updateHash()
     };
 
     const render = () => {
