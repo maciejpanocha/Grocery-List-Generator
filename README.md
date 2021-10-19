@@ -11,4 +11,4 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 - Local storage features and adjusting hash purposes.
 - Copy link to the clipboard with one click.
 - Link or hash shortcut system.
-- Even simpler JS code?
+- Next level JS code?
