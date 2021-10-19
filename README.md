@@ -5,8 +5,8 @@
 I haven't done any commits yet (just simply forgot about it, sorry!), but there's gonna be plenty of space for that, because I want to improve that code as much as I can right now.
 
 ## Upcoming features
-- ~~Cleaner JS code.~~
-- Cleanest and proper JS code.
+- ~~Cleaning JS code.~~
+- ~~Proper and clearner JS code.~~
 - Mobile-ready.
 - Local storage features and adjusting hash purposes.
 - Copy link to the clipboard with one click.
