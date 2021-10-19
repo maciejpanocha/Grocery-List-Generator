@@ -217,7 +217,7 @@
 
         cartButton.addEventListener("click", () => {
             renderCart()
-            cartLinkInput.value = `${window.location.href}${getCustomHash()}`
+            cartLinkInput.value = `${window.location.href}`
         })
     };
 
