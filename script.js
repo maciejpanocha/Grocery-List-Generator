@@ -40,6 +40,8 @@
     
     const getKilograms = (amount) => {return amount / 1000};
 
+    const clearHash = () => {window.location.hash = ""};
+    
     const updateCustomHash = () => {
         let dataHash = ``
 
@@ -66,7 +68,7 @@
                 }
             }
 
-            window.location.hash = ""
+            clearHash()
             renderPreview()
         }
     };
@@ -185,12 +187,12 @@
     const renderCart = () => {
         const items_container = document.querySelector(".js-cart")
         let cartLinkInput = document.querySelector(".js-modal-input")
+        items_container.innerHTML = ''
         let order = 0
 
-        updateCustomHash();
-        
-        items_container.innerHTML = ''
+        updateCustomHash()
         cartLinkInput.value = window.location.href
+        clearHash()
 
         for (const item of items) {
             if (item.amount > 0) {
