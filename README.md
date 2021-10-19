@@ -9,8 +9,8 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 - ~~Proper and clearner JS code.~~
 - ~~Better working hash.~~
 - Clearner CSS and HTML?
-- Mobile-ready.
-- Local storage features.
-- Copy link to the clipboard with one click.
-- Link or hash shortcut system.
+- Mobile-ready?
+- Local storage features?
+- Single click copy to clipboard?
+- Hash shortcut system?
 - Next level JS code?
