@@ -38,19 +38,17 @@
     
     const getKilograms = (amount) => {return amount / 1000};
 
-    const getCustomHash = () => {
+    const updateCustomHash = () => {
         let dataHash = ``
 
         for (const {id, amount} of items) {
             dataHash += `${id}=${amount}&`
         }
 
-        return dataHash
+        window.location.hash = dataHash
     };
 
-    const updateHash = () => {window.location.hash = getCustomHash()};
-
-    const tryUpdateItemsData = () => {
+    const updateItemsData = () => {
         if (window.location.hash !== "") {
             let currentHash = window.location.hash.substr(1)
             let objectsHash = currentHash.split('&').reduce(function (res, item) {
@@ -66,6 +64,7 @@
                 }
             }
 
+            window.location.hash = ""
             renderPreview()
         }
     };
@@ -106,8 +105,6 @@
     const renderItem = (item) => {
         renderAmount(item)
         renderPreview()
-
-        updateHash()
     };
 
     const renderPreview = () => {
@@ -188,6 +185,8 @@
         let cartLinkInput = document.querySelector(".js-modal-input")
         let order = 0
 
+        updateCustomHash();
+        
         items_container.innerHTML = ''
         cartLinkInput.value = window.location.href
 
@@ -246,7 +245,7 @@
     const render = () => {
         renderItems()
         
-        tryUpdateItemsData()
+        updateItemsData()
         
         bindManageItemEvents()
         bindShowCartEvent()
