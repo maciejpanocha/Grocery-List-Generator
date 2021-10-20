@@ -3,9 +3,9 @@
 GH Pages ---> https://maciejpanocha.github.io/Grocery-List-Generator/
 
 ## Just a few commits?
-I haven't done any commits yet (just simply forgot about it, sorry!), but there's gonna be plenty of space for that - I want to improve that code as much as I can right now.
+Yeah, I've started late.
 
-## Upcoming
+## Working on
 - ~~Cleaning JS code.~~
 - ~~Proper and clearner JS code.~~
 - ~~Better working hash.~~
@@ -14,7 +14,6 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 - Local storage features?
 - Single click copy to clipboard?
 - Hash shortcut system?
-- Next level JS code?
 
 ## Methodologies
 - BEM
