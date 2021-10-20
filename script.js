@@ -73,6 +73,16 @@
         }
     };
 
+    const updateBarPosition = () => {
+        const bar = document.querySelector(".js-cart-bar")
+
+        if (window.scrollY >= 150) {
+            bar.classList.add("container--sticky");
+        } else {
+            bar.classList.remove("container--sticky");
+        }
+    };
+
     const addToCartEvent = (item) => {
         const index = items.indexOf(item)
         
@@ -243,11 +253,14 @@
         }
     };
 
+    const bindAdjustBarPosition = () => window.addEventListener("scroll", () => {updateBarPosition()})
+
     const render = () => {
         renderItems()
         
         updateItemsData()
         
+        bindAdjustBarPosition()
         bindManageItemEvents()
         bindShowCartEvent()
         bindCloseModalEvent()

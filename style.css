@@ -15,7 +15,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wrapper { 
-    margin: 0 20px 20px 20px;
     display: flex;
     flex-direction: column;
 }
@@ -26,7 +25,18 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.header__img {
+    max-width: 200px;
+}
+
+.header__h1 {
+    margin: 0;
+    display: none;
+    font-size: 28px; 
+}
+
 .container--small {
+    width: 100%;
     padding: 15px;
     background-color: #7ED957;
     color: #fff;
@@ -37,14 +47,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
 }
 
-.header__img {
-    max-width: 200px;
-}
-
-.header__h1 {
-    margin: 0;
-    display: none;
-    font-size: 28px; 
+.container--sticky {
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .container__h3 {
