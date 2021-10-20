@@ -40,6 +40,16 @@
     
     const getKilograms = (amount) => {return amount / 1000};
 
+    const getLocalStorage = () => {
+        for (const item of items) {
+            const number = parseInt(localStorage.getItem(item.id))
+            if (number > 0) {
+                item.amount = number
+                renderItem(item)
+            }
+        }
+    };
+
     const clearHash = () => {window.location.hash = ""};
     
     const updateCustomHash = () => {
@@ -64,12 +74,14 @@
             for (let i = 0; i < Object.values(objectsHash).length; i++) {
                 for (let z = 0; z < objectsHash[i+1]; z++) {
                     addToCartEvent(items[i])
-                    renderAmount(items[i])
                 }
             }
 
             clearHash()
             renderPreview()
+            console.log("zaktualizowano na podstawie hashdata")
+        } else {
+            getLocalStorage()
         }
     };
 
@@ -83,6 +95,14 @@
         }
     };
 
+    const updateLocalStorage = (item) => {
+        if (item.amount > 0) {
+            localStorage.setItem(`${item.id}`, `${item.amount}`)
+        } else {
+            localStorage.removeItem(`${item.id}`)
+        }
+    };
+
     const addToCartEvent = (item) => {
         const index = items.indexOf(item)
         
@@ -92,6 +112,7 @@
             ...items.slice(index + 1)
         ]
         item.amount = items[index].amount
+        updateLocalStorage(item)
 
         renderItem(item)
     };
@@ -107,6 +128,7 @@
             ]
         }
         item.amount = items[index].amount
+        updateLocalStorage(item)
         
         renderItem(item)
     };
