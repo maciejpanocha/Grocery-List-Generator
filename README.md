@@ -15,3 +15,9 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 - Single click copy to clipboard?
 - Hash shortcut system?
 - Next level JS code?
+
+## Methodologies
+- BEM
+
+## Contact
+Email: maciej.panocha@gmail.com
