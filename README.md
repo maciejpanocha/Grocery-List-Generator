@@ -4,7 +4,7 @@
 ## Just a few commits?
 I haven't done any commits yet (just simply forgot about it, sorry!), but there's gonna be plenty of space for that - I want to improve that code as much as I can right now.
 
-## Upcoming features
+## Upcoming
 - ~~Cleaning JS code.~~
 - ~~Proper and clearner JS code.~~
 - ~~Better working hash.~~
