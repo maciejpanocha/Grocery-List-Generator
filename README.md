@@ -1,5 +1,5 @@
 # Grocery List Generator
- First own app, created after a long break from dev stuff.
+ First own app, created after a long break from dev stuff.  
 GH Pages ---> https://maciejpanocha.github.io/Grocery-List-Generator/
 
 ## Just a few commits?
