@@ -11,7 +11,7 @@ Yeah, I've started late.
 - ~~Better working hash.~~
 - ~~Clearner CSS and HTML.~~
 - ~~Mobile-ready.~~
-- Local storage features?
+- ~~Local storage.~~
 - Single click copy to clipboard?
 - Hash shortcut system?
 
