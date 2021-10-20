@@ -9,7 +9,7 @@ I haven't done any commits yet (just simply forgot about it, sorry!), but there'
 - ~~Proper and clearner JS code.~~
 - ~~Better working hash.~~
 - ~~Clearner CSS and HTML.~~
-- Mobile-ready?
+- ~~Mobile-ready?~~
 - Local storage features?
 - Single click copy to clipboard?
 - Hash shortcut system?
