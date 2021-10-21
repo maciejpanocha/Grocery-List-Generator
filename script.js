@@ -30,15 +30,15 @@
         }
     ]
 
-    const htmlItemAmount = (amount) => {return `Ilość: <span class="items__p items__p--bigger">${amount}x</span>`}
-    
-    const appendNode = (parent, element) => {parent.appendChild(element)};
+    const htmlItemAmount = (amount) => { return `Ilość: <span class="items__p items__p--bigger">${amount}x</span>` }
 
-    const createNode = (node) => {return document.createElement(node)};
+    const appendNode = (parent, element) => { parent.appendChild(element) };
 
-    const getTotalWeight = (item) => {return item.weight * item.amount};
-    
-    const getKilograms = (amount) => {return amount / 1000};
+    const createNode = (node) => { return document.createElement(node) };
+
+    const getTotalWeight = (item) => { return item.weight * item.amount };
+
+    const getKilograms = (amount) => { return amount / 1000 };
 
     const getLocalStorage = () => {
         for (const item of items) {
@@ -49,13 +49,13 @@
             }
         }
     };
-
-    const clearHash = () => {window.location.hash = ""};
     
+    const clearHash = () => { window.location.hash = "" };
+
     const updateCustomHash = () => {
         let dataHash = ``
 
-        for (const {id, amount} of items) {
+        for (const { id, amount } of items) {
             dataHash += `${id}=${amount}&`
         }
 
@@ -72,7 +72,7 @@
             }, {})
 
             for (let i = 0; i < Object.values(objectsHash).length; i++) {
-                for (let z = 0; z < objectsHash[i+1]; z++) {
+                for (let z = 0; z < objectsHash[i + 1]; z++) {
                     addToCartEvent(items[i])
                 }
             }
@@ -103,12 +103,24 @@
         }
     };
 
+    const updateClipboard = () => {
+        const input = document.querySelector(".js-modal-input")
+        navigator.clipboard.writeText(input.value)
+        updateAnnouncementVisibility("block")
+    };
+
+    const updateAnnouncementVisibility = (state) => {
+        if (state == "none" || state == "block") {
+            document.querySelector(".js-modal-p").style.display = state
+        }
+    };
+
     const addToCartEvent = (item) => {
         const index = items.indexOf(item)
-        
+
         items = [
             ...items.slice(0, index),
-            {...items[index], amount: items[index].amount + 1},
+            { ...items[index], amount: items[index].amount + 1 },
             ...items.slice(index + 1)
         ]
         item.amount = items[index].amount
@@ -119,21 +131,21 @@
 
     const removeFromCartEvent = (item) => {
         const index = items.indexOf(item)
-        
+
         if (item.amount > 0) {
             items = [
                 ...items.slice(0, index),
-                {...items[index], amount: items[index].amount - 1},
+                { ...items[index], amount: items[index].amount - 1 },
                 ...items.slice(index + 1)
             ]
         }
         item.amount = items[index].amount
         updateLocalStorage(item)
-        
+
         renderItem(item)
     };
 
-    const renderAmount = ({id, amount}) => {
+    const renderAmount = ({ id, amount }) => {
         let currentAmount = document.getElementById(`amountOf${id}`)
         currentAmount.innerHTML = htmlItemAmount(amount)
     };
@@ -148,7 +160,7 @@
         let itemsNumber = 0
         let itemsPieces = 0
         let itemsTotalWeight = 0
-        
+
         for (const item of items) {
             if (item.amount > 0) {
                 itemsNumber++
@@ -156,7 +168,7 @@
                 itemsTotalWeight += getTotalWeight(item)
             }
         }
-        
+
         previewBar.innerHTML = `
             Produktów razem: ${itemsNumber},
             Sztuk razem: ${itemsPieces},
@@ -245,14 +257,15 @@
     const bindOpenModalEvent = () => {
         const openModalButton = document.querySelector(".js-modal-open")
         openModalButton.addEventListener("click", () => {
-            {document.querySelector(".js-modal").style.display = "block"}
+            { document.querySelector(".js-modal").style.display = "block" }
         })
     };
 
     const bindCloseModalEvent = () => {
         const closeModalButton = document.querySelector(".js-modal-close")
         closeModalButton.addEventListener("click", () => {
-            {document.querySelector(".js-modal").style.display = "none"}
+            { document.querySelector(".js-modal").style.display = "none" }
+            updateAnnouncementVisibility("none")
         })
     };
 
@@ -260,11 +273,11 @@
         let cartButton = document.querySelector(".js-cart-button")
         cartButton.addEventListener("click", () => renderCart())
     };
-    
+
     const bindManageItemEvents = () => {
         let addButton = document.querySelectorAll(".js-cart-button--add")
         let removeButton = document.querySelectorAll(".js-cart-button--remove")
-        
+
         for (let i = 0; i < items.length; i++) {
             addButton[i].addEventListener("click", () => {
                 addToCartEvent(items[i])
@@ -275,16 +288,22 @@
         }
     };
 
-    const bindAdjustBarPosition = () => window.addEventListener("scroll", () => {updateBarPosition()})
+    const bindCopyToClipboardEvent = () => {
+        const button = document.querySelector(".js-modal-input-copy-button")
+        button.addEventListener("click", () => { updateClipboard() })
+    };
+
+    const bindAdjustBarPosition = () => window.addEventListener("scroll", () => { updateBarPosition() })
 
     const render = () => {
         renderItems()
-        
+
         updateItemsData()
-        
+
         bindAdjustBarPosition()
         bindManageItemEvents()
         bindShowCartEvent()
+        bindCopyToClipboardEvent()
         bindCloseModalEvent()
         bindOpenModalEvent()
     };
@@ -292,6 +311,6 @@
     const init = () => {
         render()
     };
-    
+
     init()
 };

@@ -137,6 +137,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
 }
 
+.modal__button--small {
+    font-size: 18px;
+    padding: 3px 15px;
+}
+
 .modal__button:hover, .modal__button:active {
     background-color: #1AC8DB;
     cursor: pointer;
@@ -148,9 +153,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
+.modal__p {
+    display: none;
+    color: #7ED957;
+    transition: 0.1s;
+    font-size: 14px;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    flex-basis: 100%;
+}
+
 .modal__footer {
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -161,7 +178,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal__label {
-    margin-right: 20px;
     font-weight: bold;
     color: #7ED957;
 }
@@ -172,6 +188,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #737373;
     font-size: 10px;
     padding: 5px;
+    margin: 0 20px;
 }
 
 .items {
