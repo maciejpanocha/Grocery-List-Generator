@@ -12,7 +12,7 @@ Yeah, I've started late.
 - ~~Clearner CSS and HTML.~~
 - ~~Mobile-ready.~~
 - ~~Local storage.~~
-- Single click copy to clipboard?
+- ~~Single click copy to clipboard.~~
 - Hash shortcut system?
 
 ## Methodologies
