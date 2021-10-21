@@ -42,47 +42,42 @@
 
     const getLocalStorage = () => {
         for (const item of items) {
-            const number = parseInt(localStorage.getItem(item.id))
-            if (number > 0) {
-                item.amount = number
+            const value = parseInt(localStorage.getItem(item.id))
+            if (value > 0) {
+                item.amount = value
                 renderItem(item)
             }
         }
     };
     
-    const clearHash = () => { window.location.hash = "" };
-
-    const updateCustomHash = () => {
-        let dataHash = ``
-
+    const getCustomHash = () => {
+        let hash = ``
         for (const { id, amount } of items) {
-            dataHash += `${id}=${amount}&`
+            hash += `${id}=${amount}&`
         }
-
-        window.location.hash = dataHash
+        return hash
     };
 
+    const clearWindowHash = () => { window.location.hash = "" };
+
     const updateItemsData = () => {
-        if (window.location.hash !== "") {
-            let currentHash = window.location.hash.substr(1)
-            let objectsHash = currentHash.split('&').reduce(function (res, item) {
-                let parts = item.split('=')
-                res[parts[0]] = parts[1]
-                return res
-            }, {})
+        if (window.location.hash == "") return getLocalStorage()
 
-            for (let i = 0; i < Object.values(objectsHash).length; i++) {
-                for (let z = 0; z < objectsHash[i + 1]; z++) {
-                    addToCartEvent(items[i])
-                }
+        let currentHash = window.location.hash.substr(1)
+        let objectsHash = currentHash.split('&').reduce(function (result, item) {
+            let parts = item.split('=')
+            result[parts[0]] = parts[1]
+            return result
+        }, {})
+
+        for (let i = 0; i < Object.values(objectsHash).length; i++) {
+            for (let z = 0; z < objectsHash[i + 1]; z++) {
+                addToCartEvent(items[i])
             }
-
-            clearHash()
-            renderPreview()
-            console.log("zaktualizowano na podstawie hashdata")
-        } else {
-            getLocalStorage()
         }
+
+        clearWindowHash()
+        renderPreview()
     };
 
     const updateBarPosition = () => {
@@ -96,11 +91,8 @@
     };
 
     const updateLocalStorage = (item) => {
-        if (item.amount > 0) {
-            localStorage.setItem(`${item.id}`, `${item.amount}`)
-        } else {
-            localStorage.removeItem(`${item.id}`)
-        }
+        if (item.amount <= 0) localStorage.removeItem(`${item.id}`)
+        localStorage.setItem(`${item.id}`, `${item.amount}`)
     };
 
     const updateClipboard = () => {
@@ -234,9 +226,7 @@
         items_container.innerHTML = ''
         let order = 0
 
-        updateCustomHash()
-        cartLinkInput.value = window.location.href
-        clearHash()
+        cartLinkInput.value = `${window.location.host}/#${getCustomHash()}`
 
         for (const item of items) {
             if (item.amount > 0) {
