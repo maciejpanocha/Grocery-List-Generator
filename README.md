@@ -14,6 +14,7 @@ Yeah, I've started late.
 - ~~Local storage.~~
 - ~~Single click copy to clipboard.~~
 - Hash shortcut system?
+- Event better JS code?
 
 ## Methodologies
 - BEM
